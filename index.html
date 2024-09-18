@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Me Protocol Pay CDN</title>
+    <style>
+      /* Basic styling for the button */
+      button {
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+      }
+      button:hover {
+        background-color: #0056b3;
+      }
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        flex-direction: column;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Open Modal with Iframe</h1>
+    <button id="openModalBtn">Open Payment Modal</button>
+
+    <!-- Include your CDN JavaScript file -->
+    <script src="./cdn.js"></script>
+
+    <script>
+      // Select the button and add a click event listener to trigger the openIframe function
+      document
+        .getElementById("openModalBtn")
+        .addEventListener("click", function () {
+          openIframe({
+            apiKey: "ro2a6ajkavja4i0uhui41i", // Replace with actual API key
+            amount: 1000, // Amount in your preferred format
+            email: "colourjim@gmail.com", // Replace with actual email
+            onClose: function () {
+              console.log("Modal closed");
+            },
+            onSuccess: function () {
+              console.log("Payment successful");
+            },
+            onError: function (error) {
+              console.log("Payment failed", error);
+            },
+            link: "http://localhost:3000", // Replace with the actual iframe link
+          });
+        });
+    </script>
+  </body>
+</html>
