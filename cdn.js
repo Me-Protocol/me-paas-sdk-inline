@@ -5,7 +5,7 @@
     return div.innerHTML;
   }
 
-  function openIframe({
+  function payWithMeProtocol({
     apiKey,
     amount,
     email,
@@ -146,6 +146,6 @@
     });
   }
 
-  // Expose the openIframe function to the global scope
-  window.openIframe = openIframe;
+  // Expose the payWithMeProtocol function to the global scope
+  window.payWithMeProtocol = payWithMeProtocol;
 })(window);
