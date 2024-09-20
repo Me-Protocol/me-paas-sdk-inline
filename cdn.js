@@ -5,7 +5,7 @@
     return div.innerHTML;
   }
 
-  function payWithMeProtocol({
+  function payWithMePaas({
     apiKey,
     amount,
     email,
@@ -146,6 +146,6 @@
     });
   }
 
-  // Expose the payWithMeProtocol function to the global scope
-  window.payWithMeProtocol = payWithMeProtocol;
+  // Expose the payWithMePaas function to the global scope
+  window.payWithMePaas = payWithMePaas;
 })(window);
