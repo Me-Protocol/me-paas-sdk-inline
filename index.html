@@ -3,36 +3,177 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Me Protocol Pay CDN</title>
+    <title>Checkout Page</title>
+    <script src="./cdn.js"></script>
+
     <style>
-      /* Basic styling for the button */
-      button {
-        padding: 10px 20px;
-        background-color: #007bff;
-        color: white;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        font-size: 16px;
+      /* Basic reset */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
       }
-      button:hover {
-        background-color: #0056b3;
-      }
+
       body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f9;
         display: flex;
         justify-content: center;
         align-items: center;
-        height: 100vh;
-        flex-direction: column;
+        min-height: 100vh;
+      }
+
+      .checkout-container {
+        background-color: #fff;
+        padding: 20px;
+        max-width: 600px;
+        width: 100%;
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      }
+
+      h2 {
+        text-align: center;
+        margin-bottom: 20px;
+        color: #333;
+      }
+
+      /* Cart items section */
+      .cart-items {
+        margin-bottom: 20px;
+      }
+
+      .cart-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 0;
+        border-bottom: 1px solid #e5e5e5;
+      }
+
+      .product-image {
+        width: 80px;
+        height: 80px;
+        object-fit: cover;
+        margin-right: 15px;
+        border-radius: 8px;
+      }
+
+      .item-details {
+        flex-grow: 1;
+      }
+
+      .item-details h4 {
+        font-size: 1rem;
+        color: #333;
+      }
+
+      .item-details p {
+        font-size: 0.875rem;
+        color: #666;
+      }
+
+      .item-price {
+        font-size: 1rem;
+        color: #333;
+        min-width: 80px;
+        text-align: right;
+      }
+
+      /* Summary section */
+      .checkout-summary {
+        padding-top: 10px;
+      }
+
+      .summary-item {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 10px;
+        font-size: 1rem;
+      }
+
+      .total {
+        font-weight: bold;
+        font-size: 1.2rem;
+      }
+
+      .pay-button {
+        width: 100%;
+        background-color: #4caf50;
+        color: white;
+        padding: 10px;
+        border: none;
+        border-radius: 4px;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      .pay-button:hover {
+        background-color: #45a049;
       }
     </style>
   </head>
   <body>
-    <h1>Open Modal with Iframe</h1>
-    <button id="openModalBtn">Open Payment Modal</button>
+    <div class="checkout-container">
+      <h2>Checkout</h2>
+      <div class="cart-items">
+        <div class="cart-item">
+          <img
+            src="https://via.placeholder.com/80"
+            alt="Product Image 1"
+            class="product-image"
+          />
+          <div class="item-details">
+            <h4>Product Name 1</h4>
+            <p>Quantity: 2</p>
+          </div>
+          <div class="item-price">$20.00</div>
+        </div>
 
-    <!-- Include your CDN JavaScript file -->
-    <script src="./cdn.js"></script>
+        <div class="cart-item">
+          <img
+            src="https://via.placeholder.com/80"
+            alt="Product Image 2"
+            class="product-image"
+          />
+          <div class="item-details">
+            <h4>Product Name 2</h4>
+            <p>Quantity: 1</p>
+          </div>
+          <div class="item-price">$15.00</div>
+        </div>
+
+        <div class="cart-item">
+          <img
+            src="https://via.placeholder.com/80"
+            alt="Product Image 3"
+            class="product-image"
+          />
+          <div class="item-details">
+            <h4>Product Name 3</h4>
+            <p>Quantity: 3</p>
+          </div>
+          <div class="item-price">$30.00</div>
+        </div>
+      </div>
+
+      <div class="checkout-summary">
+        <div class="summary-item">
+          <span>Subtotal</span>
+          <span>$65.00</span>
+        </div>
+        <div class="summary-item">
+          <span>Tax</span>
+          <span>$5.20</span>
+        </div>
+        <div class="summary-item total">
+          <span>Total</span>
+          <span>$70.20</span>
+        </div>
+        <button id="openModalBtn" class="pay-button">Pay Now</button>
+      </div>
+    </div>
 
     <script>
       // Select the button and add a click event listener to trigger the openIframe function
@@ -41,7 +182,7 @@
         .addEventListener("click", function () {
           payWithMePaas({
             apiKey: "ro2a6ajkavja4i0uhui41i", // Replace with actual API key
-            amount: 1000, // Amount in your preferred format
+            amount: 45, // Amount in your preferred format
             email: "colourjim@gmail.com", // Replace with actual email
             onClose: function () {
               console.log("Modal closed");
