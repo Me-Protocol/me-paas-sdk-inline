@@ -112,6 +112,24 @@
       .pay-button:hover {
         background-color: #45a049;
       }
+
+      .input {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        font-size: 1rem;
+      }
+
+      .input:focus {
+        outline: none;
+        border-color: #4caf50;
+      }
+
+      .input::placeholder {
+        color: #ccc;
+      }
     </style>
   </head>
   <body>
@@ -171,19 +189,36 @@
           <span>Total</span>
           <span>$70.20</span>
         </div>
-        <button id="openModalBtn" class="pay-button">Pay Now</button>
+        <input
+          class="input"
+          id="email"
+          type="email"
+          placeholder="Please enter email address"
+          required
+        />
+        <button id="openModalBtn" class="pay-button">
+          Pay With Me Protocol
+        </button>
       </div>
     </div>
 
     <script>
       // Select the button and add a click event listener to trigger the openIframe function
+
       document
         .getElementById("openModalBtn")
         .addEventListener("click", function () {
+          const email = document.getElementById("email").value;
+
+          if (!email) {
+            alert("Please enter your email address");
+            return;
+          }
+
           payWithMePaas({
             apiKey: "ro2a6ajkavja4i0uhui41i", // Replace with actual API key
-            amount: 45, // Amount in your preferred format
-            email: "colourjim@gmail.com", // Replace with actual email
+            amount: 70.2, // Amount in your preferred format
+            email: email, // Replace with actual email
             onClose: function () {
               console.log("Modal closed");
             },
@@ -193,7 +228,7 @@
             onError: function (error) {
               console.log("Payment failed", error);
             },
-            link: "http://localhost:3000", // Replace with the actual iframe link
+            link: "https://me-paas-sdk.vercel.app", // Replace with the actual iframe link
           });
         });
     </script>
