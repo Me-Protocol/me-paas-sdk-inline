@@ -222,13 +222,13 @@
             onClose: function () {
               console.log("Modal closed");
             },
-            onSuccess: function () {
-              console.log("Payment successful");
+            onSuccess: function (transactionId) {
+              console.log("Payment successful", transactionId);
             },
             onError: function (error) {
               console.log("Payment failed", error);
             },
-            link: "https://me-paas-sdk.vercel.app", // Replace with the actual iframe link
+            link: "http://localhost:3000", // Replace with the actual iframe link
           });
         });
     </script>

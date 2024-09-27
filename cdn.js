@@ -107,7 +107,7 @@
         return; // Ignore messages from unknown origins
       }
       if (event.data.status === "success" && typeof onSuccess === "function") {
-        onSuccess(event.data.hash); // Handle the success and return the hash
+        onSuccess(event.data.transactionId); // Handle the success and return the hash
         closeModal();
       } else if (
         event.data.status === "error" &&
