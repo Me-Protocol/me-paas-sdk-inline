@@ -107,8 +107,7 @@
         return; // Ignore messages from unknown origins
       }
       if (event.data.status === "success" && typeof onSuccess === "function") {
-        onSuccess(event.data.transactionId); // Handle the success and return the hash
-        closeModal();
+        onSuccess(event.data.task_id); // Handle the success and return the hash
       } else if (
         event.data.status === "error" &&
         typeof onError === "function"
