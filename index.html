@@ -191,9 +191,16 @@
         </div>
         <input
           class="input"
+          id="apiKey"
+          type="text"
+          placeholder="Please enter your API key"
+          required
+        />
+        <input
+          class="input"
           id="amount"
           type="number"
-          placeholder="Please amount to redeem"
+          placeholder="Please amount amount to redeem"
           required
         />
         <input
@@ -217,14 +224,15 @@
         .addEventListener("click", function () {
           const email = document.getElementById("email").value;
           const amount = document.getElementById("amount").value;
+          const apiKey = document.getElementById("apiKey").value;
 
-          if (!email || !amount) {
-            alert("Please enter your amount and email address");
+          if (!email || !amount || !apiKey) {
+            alert("Please enter your apiKey, amount and email address");
             return;
           }
 
           payWithMePaas({
-            apiKey: "ro2a6ajkavja4i0uhui41i", // Replace with actual API key
+            apiKey: apiKey, // Replace with actual API key
             amount: amount, // Amount in your preferred format
             email: email, // Replace with actual email
             onClose: function () {
