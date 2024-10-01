@@ -15,17 +15,10 @@
   document
     .getElementById("openModalBtn")
     .addEventListener("click", function () {
-      const email = document.getElementById("email").value;
-
-      if (!email) {
-        alert("Please enter your email address");
-        return;
-      }
-
       payWithMePaas({
         apiKey: "ro2a6ajkavja4i0uhui41i", // Replace with actual API key
         amount: 1.2, // Amount in your preferred format
-        email: email, // Replace with actual email
+        email: "info@myai.life", // Replace with actual email
         onClose: function () {
           console.log("Modal closed");
         },
