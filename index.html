@@ -191,6 +191,13 @@
         </div>
         <input
           class="input"
+          id="amount"
+          type="number"
+          placeholder="Please amount to redeem"
+          required
+        />
+        <input
+          class="input"
           id="email"
           type="email"
           placeholder="Please enter email address"
@@ -209,15 +216,16 @@
         .getElementById("openModalBtn")
         .addEventListener("click", function () {
           const email = document.getElementById("email").value;
+          const amount = document.getElementById("amount").value;
 
-          if (!email) {
-            alert("Please enter your email address");
+          if (!email || !amount) {
+            alert("Please enter your amount and email address");
             return;
           }
 
           payWithMePaas({
             apiKey: "ro2a6ajkavja4i0uhui41i", // Replace with actual API key
-            amount: 1.2, // Amount in your preferred format
+            amount: amount, // Amount in your preferred format
             email: email, // Replace with actual email
             onClose: function () {
               console.log("Modal closed");
