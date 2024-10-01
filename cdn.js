@@ -12,13 +12,12 @@
     onClose,
     onSuccess,
     onError,
-    link,
   }) {
     // Sanitize inputs
     apiKey = sanitizeInput(apiKey);
     amount = sanitizeInput(amount);
     email = sanitizeInput(email);
-    link = sanitizeInput(link);
+    const link = "https://me-paas-sdk.vercel.app";
 
     // Validate required parameters
     if (!apiKey || !amount || !email || !link) {
