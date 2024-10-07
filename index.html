@@ -189,6 +189,23 @@
           <span>Total</span>
           <span>$70.20</span>
         </div>
+        <select
+          class="input"
+          id="envLink"
+          type="text"
+          placeholder="Select environment"
+          required
+        >
+          <option value="">Select Environment</option>
+          <option value="https://me-paas-sdk-dev-b6b6a945757f.herokuapp.com/">
+            Dev Environment
+          </option>
+          <option
+            value="https://me-paas-sdk-staging-7a359d18afea.herokuapp.com/"
+          >
+            Staging Environment
+          </option>
+        </select>
         <input
           class="input"
           id="apiKey"
@@ -225,9 +242,10 @@
           const email = document.getElementById("email").value;
           const amount = document.getElementById("amount").value;
           const apiKey = document.getElementById("apiKey").value;
+          const envLink = document.getElementById("envLink").value;
 
-          if (!email || !amount || !apiKey) {
-            alert("Please enter your apiKey, amount and email address");
+          if (!email || !amount || !apiKey || !envLink) {
+            alert("Please enter your apiKey, amount, env and email address");
             return;
           }
 
@@ -235,6 +253,7 @@
             apiKey: apiKey, // Replace with actual API key
             amount: amount, // Amount in your preferred format
             email: email, // Replace with actual email
+            envLink: envLink,
             onClose: function () {
               console.log("Modal closed");
             },

@@ -12,12 +12,15 @@
     onClose,
     onSuccess,
     onError,
+    envLink,
   }) {
     // Sanitize inputs
     apiKey = sanitizeInput(apiKey);
     amount = sanitizeInput(amount);
     email = sanitizeInput(email);
-    const link = "https://me-paas-sdk.vercel.app";
+    const captureLink = sanitizeInput(envLink);
+
+    const link = envLink ? captureLink : "https://me-paas-sdk.vercel.app";
 
     // Validate required parameters
     if (!apiKey || !amount || !email || !link) {
@@ -50,7 +53,7 @@
     const modalContent = document.createElement("div");
     modalContent.style.position = "relative";
     modalContent.style.width = "400px";
-    modalContent.style.height = "550px";
+    modalContent.style.height = "600px";
     modalContent.style.backgroundColor = "#fff";
     modalContent.style.borderRadius = "32px";
     modalContent.style.overflow = "hidden";
