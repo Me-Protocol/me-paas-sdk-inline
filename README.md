@@ -3,7 +3,7 @@
 ## Install
 
 ```html
-<script src="https://cdn.jsdelivr.net/gh/ME-PAAS/me-paas-sdk-inline/dist/me-paas-sdk-inline.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/ME-PAAS/me-paas-sdk-inline/dist/cdn.js"></script>
 ```
 
 ## Usage
